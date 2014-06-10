@@ -21,7 +21,9 @@ angular.module('localytics.directives').directive 'chosen', ->
     'displayDisabledOptions'
     'displaySelectedOptions'
     'width'
-  ]
+    'groupSearch'
+    'enableSplitWordSearch'
+ ]
 
   snakeCase = (input) -> input.replace /[A-Z]/g, ($1) -> "_#{$1.toLowerCase()}"
   isEmpty = (value) ->
