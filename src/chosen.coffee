@@ -57,7 +57,7 @@ angular.module('localytics.directives').directive 'chosen', ->
         element.trigger('chosen:updated')
       else
         chosen = element.chosen(options).data('chosen')
-        defaultText = chosen.default_text
+        defaultText = chosen.default_text if chosen
 
     # Use Chosen's placeholder or no results found text depending on whether there are options available
     removeEmptyMessage = ->
@@ -66,7 +66,7 @@ angular.module('localytics.directives').directive 'chosen', ->
 
     disableWithMessage = ->
       empty = true
-      element.attr('data-placeholder', chosen.results_none_found).attr('disabled', true).trigger('chosen:updated')
+      element.attr('data-placeholder', chosen.results_none_found).attr('disabled', true).trigger('chosen:updated') if chosen
 
     # Watch the underlying ngModel for updates and trigger an update when they occur.
     if ngModel
